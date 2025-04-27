@@ -9,15 +9,6 @@ API_TOKEN = os.getenv("BUBBLE_API_TOKEN")
 BASE_URL = os.getenv("BUBBLE_BASE_URL")
 
 def load_brief(company_id: str) -> str:
-    """
-    Récupère uniquement le brief d'une Company dans Bubble.
-
-    Args:
-        company_id (str): L'ID de la company dans Bubble.
-
-    Returns:
-        str: Le brief de l'entreprise, ou None si problème.
-    """
     url = f"{BASE_URL}/{company_id}"
     headers = {
         'Authorization': f'Bearer {API_TOKEN}',
@@ -30,7 +21,7 @@ def load_brief(company_id: str) -> str:
         data = response.json()
 
         # Extraction directe du brief
-        brief = data.get("response", {}).get("brief", None)
+        brief = data.get("response", {}).get("final_brief", None)
 
         if not brief:
             print(f"Brief non trouvé pour l'entreprise {company_id}")
@@ -42,6 +33,6 @@ def load_brief(company_id: str) -> str:
 
 # Exemple d'utilisation
 if __name__ == "__main__":
-    company_id = "1744963144323x755054945165639700"
+    company_id = "1745237684459x750813329623613400"
     brief_text = load_brief(company_id)
     print(brief_text)

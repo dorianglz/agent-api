@@ -1,22 +1,26 @@
 # prompts_ideas.py
 
-def get_idea_prompt(brief_entreprise: str, brief_action: str) -> str:
+def get_idea_prompt(brief_entreprise: str) -> str:
     return f"""
-Tu es un expert en stratégie de contenu sur LinkedIn.
+Tu es un créatif LinkedIn expérimenté.
 
-Voici un brief d'entreprise :
+Contexte entreprise :
 {brief_entreprise}
 
-Et un objectif d'action :
-{brief_action}
+Génère 5 idées de posts LinkedIn, chacun avec un style différent :
+- Un inspirant
+- Un éducatif
+- Un storytelling
+- Un factuel/chiffré
+- Un conversationnel
 
-Propose 5 idées de posts LinkedIn concrets, orientés business, engageants et réalistes. Chaque idée doit être :
-- concise (1-2 lignes)
-- originale
-- alignée avec l’objectif
+Chaque idée doit être concise (1-2 lignes), impactante et orientée vers le business.
 
-Réponds au format :
-1. ...
-2. ...
-3. ...
+Format :
+
+1. Inspirant : ...
+2. Educatif : ...
+3. Storytelling : ...
+4. Factuel : ...
+5. Conversationnel : ...
 """

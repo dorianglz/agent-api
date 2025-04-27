@@ -13,8 +13,8 @@ class IdeaGenerator:
     def __init__(self, model=MODEL_BASE):
         self.model = model
 
-    def generate_ideas(self, brief_entreprise: str, brief_action: str) -> list:
-        prompt = get_idea_prompt(brief_entreprise, brief_action)
+    def generate_ideas(self, brief_entreprise: str) -> list:
+        prompt = get_idea_prompt(brief_entreprise)
         response = client.chat.completions.create(
             model=self.model,
             messages=[{"role": "user", "content": prompt}],

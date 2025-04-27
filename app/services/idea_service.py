@@ -1,15 +1,18 @@
 # from app.services.prompts_ideas import PROMPTS_IDEAS  # si nécessaire
 from app.agents.content_creator.idea_generator import IdeaGenerator  # Ton vrai générateur d'idée
+from app.utils.get_brief_entreprise import load_brief
 
 def generate_idea(payload: dict):
 
     idea_generator = IdeaGenerator()
 
-    brief_entreprise = payload.get("brief_entreprise", "Entreprise de cosmetique")
-    brief_action = payload.get("brief_action", "Contenu général")
+    brief_id = payload.get("id_brief", "null")
+    brief_entreprise = load_brief(brief_id)
+
+    print(brief_entreprise)
 
     try:
-        idea = idea_generator.generate_ideas(brief_entreprise, brief_action)
+        idea = idea_generator.generate_ideas(brief_entreprise)
         return {"idea": idea}
     except Exception as e:
         return {"error": str(e)}
