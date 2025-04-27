@@ -9,8 +9,6 @@ def generate_idea(payload: dict):
     brief_id = payload.get("id_brief", "null")
     brief_entreprise = load_brief(brief_id)
 
-    print(brief_entreprise)
-
     try:
         idea = idea_generator.generate_ideas(brief_entreprise)
         return {"idea": idea}

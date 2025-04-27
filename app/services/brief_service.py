@@ -14,7 +14,7 @@ def call_openai_for_brief(prompt: str) -> str:
             {"role": "system", "content": "Tu es un expert en stratégie marketing et branding."},
             {"role": "user", "content": prompt}
         ],
-        temperature=0.5,
+        temperature=0.4,
         max_tokens=1500
     )
     return response.choices[0].message.content
