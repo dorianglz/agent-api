@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from app.routes.agent_routes import router as agent_router
+from app.routes.app_routes_post_profiles import router as profile_router
 
 app = FastAPI(
     title="Agent D API",
@@ -9,6 +10,7 @@ app = FastAPI(
 
 # Inclusion des routes
 app.include_router(agent_router)
+app.include_router(profile_router)
 
 # Endpoint de test
 @app.get("/")
